@@ -1,16 +1,17 @@
 import asyncio
 
 from dotenv import load_dotenv
-from langchain_openai import ChatOpenAI
+from custom_openai_client import CustomAzureOpenAI
 
 from browser_use import Agent
 
 load_dotenv()
 
 # Initialize the model
-llm = ChatOpenAI(
-	model='gpt-4o',
-	temperature=0.0,
+llm = CustomAzureOpenAI(
+	deployment_name="gpt-4o",
+	model="gpt-4o",
+	api_version="2024-10-21"
 )
 task = 'Find the founders of browser-use and draft them a short personalized message'
 
